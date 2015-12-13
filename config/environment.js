@@ -49,7 +49,6 @@ module.exports = function(environment) {
   }
 
   ENV['ember-simple-auth'] = {
-    authenticationRoute: 'login',
     baseURL: 'http://localhost:3000'
   };
 

@@ -1,0 +1,10 @@
+{{input value=username placeholder="E-mail"}}
+{{input value=password placeholder="password" type="password"}}
+
+<button {{action 'login'}}>
+  Login
+</button>
+
+{{errorMessage}}
+
+{{outlet}}
