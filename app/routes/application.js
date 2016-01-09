@@ -4,12 +4,20 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Ember.Route.extend(ApplicationRouteMixin, {
 
   sessionAuthenticated: function() {
-    this._super(...arguments); //for keeping the defaults (attempted transition, routeAfterAuth config etc..)
+    this._super(...arguments); // for keeping the defaults (attempted transition, routeAfterAuth config etc..)
     this.loadUser();
   },
 
   loadUser: function() {
-    this.store.findRecord('user', 'me')
+    this.store.findRecord('user', 'me').then (user => {
+      this.set('currentUser.content', user);
+    })
+  },
+
+  beforeModel: function () {
+    if (this.get('session.isAuthenticated')) {
+      this.loadUser();
+    }
   },
 
   actions: {

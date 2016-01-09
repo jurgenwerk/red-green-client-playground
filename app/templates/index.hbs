@@ -1,6 +1,8 @@
-<h1>
-  Hey buddy
-</h1>
+{{#if session.isAuthenticated}}
+  <h1>
+    Hey buddy, {{currentUser.email}}!
+  </h1>
+{{/if}}
 
 <button {{action 'logout'}}>
   Sign out
