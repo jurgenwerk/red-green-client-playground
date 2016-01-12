@@ -9,15 +9,15 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   loadUser: function() {
-    this.store.findRecord('user', 'me').then (user => {
-      this.set('currentUser.content', user);
-    })
+    if (this.get('session.isAuthenticated')) {
+      this.store.findRecord('user', 'me').then (user => {
+        this.set('session.currentUser', user);
+      })
+    }
   },
 
   beforeModel: function () {
-    if (this.get('session.isAuthenticated')) {
-      this.loadUser();
-    }
+    this.loadUser();
   },
 
   actions: {
