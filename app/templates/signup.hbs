@@ -1,0 +1,19 @@
+<p>
+  hey buddy, signup
+</p>
+
+email:
+{{input value=user.email}}
+password:
+{{input value=user.password type="password"}}
+
+<button {{action 'signup'}}>
+  Do it
+</button>
+
+{{#each user.errors as |error|}}
+  <p>
+    {{error.attribute}}:
+    {{error.message}}
+  </p>
+{{/each}}
