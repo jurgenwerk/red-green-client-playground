@@ -4,14 +4,12 @@ export default Ember.Controller.extend({
   user: Ember.computed.alias('model'),
   actions: {
     signup: function() {
-      this.get('user').save().then(
-        (user) => {
-          window.location = "/";
-        },
-        (response) => {
-          console.log("signup fail");
-        }
-      );
+      const email = this.get('user.email');
+      const password = this.get('user.password');
+
+      this.get('user').save().then(() => {
+        this.get('session').authenticate('authenticator:oauth2', email, password);
+      });
     }
   }
 });
