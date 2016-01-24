@@ -1,0 +1,24 @@
+{{#if session.isAuthenticated}}
+  <h1>
+    Hey buddy, {{session.currentUser.email}}!
+  </h1>
+
+  <button {{action 'logout'}}>
+    Sign out
+  </button>
+  <br><br>
+{{/if}}
+
+{{#link-to 'dashboard.overview'}}
+  Overview
+{{/link-to}}
+
+{{#link-to 'dashboard.expenses'}}
+  Expenses
+{{/link-to}}
+
+{{#link-to 'dashboard.incomes'}}
+  Incomes
+{{/link-to}}
+
+{{outlet}}

@@ -3,6 +3,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model () {
-    return this.store.findAll('balance-change');
+    return this.modelFor('dashboard').filterBy('changeType', 'expense');
   }
 });

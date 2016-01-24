@@ -7,5 +7,13 @@ export default Ember.Controller.extend({
   }),
   expenses: Ember.computed('balanceChanges.[]', function() {
     return this.get('balanceChanges').filterBy('changeType', 'expense');
-  })
+  }),
+  incomeValues: Ember.computed('incomes.[]', 'incomes.@each.value', function() {
+    return this.get('incomes').mapBy('value');
+  }),
+  expenseValues: Ember.computed('expenses.[]', 'expenses.@each.value', function() {
+    return this.get('expenses').mapBy('value');
+  }),
+  incomeSum: Ember.computed.sum('incomeValues'),
+  expenseSum: Ember.computed.sum('expenseValues')
 });
