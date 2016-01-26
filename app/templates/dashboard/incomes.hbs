@@ -1,1 +1,17 @@
-incomes
+<p>
+  incomes ({{incomes.length}}):
+</p>
+
+<ul>
+  {{#each incomes as |income|}}
+    <li>
+      {{income.value}}
+    </li>
+  {{/each}}
+</ul>
+
+{{#link-to "dashboard.incomes.new"}}
+  New
+{{/link-to}}
+
+{{outlet}}

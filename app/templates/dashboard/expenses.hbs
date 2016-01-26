@@ -1,2 +1,17 @@
-expenses
-{{model.length}}
+<p>
+  expenses ({{expenses.length}}):
+</p>
+
+<ul>
+  {{#each expenses as |expense|}}
+    <li>
+      {{expense.value}}
+    </li>
+  {{/each}}
+</ul>
+
+{{#link-to "dashboard.expenses.new"}}
+  New
+{{/link-to}}
+
+{{outlet}}

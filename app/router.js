@@ -10,8 +10,12 @@ Router.map(function() {
   this.route('signup');
   this.route('dashboard', function() {
     this.route('overview');
-    this.route('incomes');
-    this.route('expenses');
+    this.route('incomes', function () {
+      this.route('new');
+    });
+    this.route('expenses', function () {
+      this.route('new');
+    });
   })
 });
 
