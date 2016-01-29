@@ -10,7 +10,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       this.controller.get('model').save().then(() => {
         this.send('refreshRoute');
         this.transitionTo('dashboard.expenses');
-      })
+      });
     }
   }
 });
