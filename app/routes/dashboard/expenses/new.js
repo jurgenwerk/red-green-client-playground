@@ -1,9 +1,17 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import moment from 'moment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  model () {
-    return this.store.createRecord('balance-change', { changeType: 'expense' });
+  model (params, transition) {
+    let entryTime = null;
+    if (transition.queryParams.period) {
+      entryTime = moment(transition.queryParams.period).toDate();
+    } else {
+      entryTime = moment().toDate();
+    }
+    debugger
+    return this.store.createRecord('balance-change', { changeType: 'expense', entryTime: entryTime });
   },
   actions: {
     save: function() {

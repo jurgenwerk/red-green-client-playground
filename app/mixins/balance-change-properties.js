@@ -15,5 +15,8 @@ export default Ember.Mixin.create({
     return this.get('expenses').mapBy('value');
   }),
   incomeSum: Ember.computed.sum('incomeValues'),
-  expenseSum: Ember.computed.sum('expenseValues')
+  expenseSum: Ember.computed.sum('expenseValues'),
+  sumDifference: Ember.computed('incomeSum', 'expenseSum', function () {
+    return this.get('incomeSum') - this.get('expenseSum');
+  })
 });

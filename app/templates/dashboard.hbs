@@ -1,31 +1,65 @@
-{{#if session.isAuthenticated}}
-  <h1>
-    Hey buddy, {{session.currentUser.email}}!
-  </h1>
+<div class="navbar">
+  <div class="navbar-period">
+    <button {{action "goPeriodBack"}}>
+      Previous
+    </button>
+    {{period-in-words period}}
+    <button {{action "goPeriodNext"}}>
+      Next
+    </button>
+  </div>
 
-  <button {{action 'logout'}}>
-    Sign out
-  </button>
-  <br><br>
-  <button {{action "goPeriodBack"}}>
-    Previous
-  </button>
-  {{period}}
-  <button {{action "goPeriodNext"}}>
-    Next
-  </button>
-{{/if}}
+  <div class="user-actions">
+    {{session.currentUser.email}}
 
-{{#link-to 'dashboard.overview'}}
-  Overview
-{{/link-to}}
+    <button {{action 'logout'}}>
+      Sign out
+    </button>
+  </div>
+</div>
 
-{{#link-to 'dashboard.expenses.index'}}
-  Expenses
-{{/link-to}}
+<div class="main">
+  {{outlet}}
+</div>
 
-{{#link-to 'dashboard.incomes.index'}}
-  Incomes
-{{/link-to}}
+<div class="sidebar">
+  <ul class="sidebar-items">
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.overview'}}
+        Overview
+      {{/link-to}}
+      <p>
+        {{sumDifference}} left to spend this month
+      </p>
+    </li>
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.expenses.index'}}
+        Expenses
+      {{/link-to}}
+      <p>
+        {{expenseSum}}
+      </p>
+    </li>
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.incomes.index'}}
+        Incomes
+      {{/link-to}}
+      <p>
+        {{incomeSum}}
+      </p>
+    </li>
+  </ul>
+</div>
 
-{{outlet}}
+<div class="action-blocks">
+  {{#link-to 'dashboard.expenses.new' class="action-block action-block-minus"}}
+    <span class="action-block-sign">
+      -
+    </span>
+  {{/link-to}}
+  {{#link-to 'dashboard.incomes.new' class="action-block action-block-plus"}}
+    <span class="action-block-sign">
+      +
+    </span>
+  {{/link-to}}
+</div>

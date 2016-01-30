@@ -2,3 +2,9 @@
 <button {{action 'save'}}>
   save
 </button>
+
+<p>
+  {{pick-a-date date=(readonly model.entryTime) on-selected=(action 'onEntryTimeSelected')}}
+</p>
+
+{{model.entryTime}}
