@@ -4,9 +4,7 @@
 
 <ul>
   {{#each incomes as |income|}}
-    <li>
-      {{money income.value session.currentUser.currencySymbol}}
-    </li>
+    {{balance-change balanceChange=income currencySymbol=session.currentUser.currencySymbol}}
   {{/each}}
 </ul>
 

@@ -4,9 +4,7 @@
 
 <ul>
   {{#each expenses as |expense|}}
-    <li>
-      {{money expense.value session.currentUser.currencySymbol}}
-    </li>
+    {{balance-change balanceChange=expense currencySymbol=session.currentUser.currencySymbol}}
   {{/each}}
 </ul>
 
