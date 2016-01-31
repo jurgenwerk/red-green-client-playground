@@ -1,11 +1,13 @@
 <div class="navbar">
   <div class="navbar-period">
     <button {{action "goPeriodBack"}}>
-      Previous
+      &#60;
     </button>
-    {{period-in-words period}}
+    <span class="period-title">
+      {{period-in-words period}}
+    </span>
     <button {{action "goPeriodNext"}}>
-      Next
+      >
     </button>
   </div>
 
@@ -29,30 +31,30 @@
     <li class="sidebar-item">
       {{#link-to 'dashboard.overview'}}
         Overview
+        <p>
+          {{#if (lt sumDifference 0)}}
+            {{money sumDifference session.currentUser.currencySymbol}} in the red
+          {{else}}
+            {{money sumDifference session.currentUser.currencySymbol}} left
+          {{/if}}
+        </p>
       {{/link-to}}
-      <p>
-        {{#if (lt sumDifference 0)}}
-          {{money sumDifference session.currentUser.currencySymbol}} in the red
-        {{else}}
-          {{money sumDifference session.currentUser.currencySymbol}} left
-        {{/if}}
-      </p>
     </li>
     <li class="sidebar-item">
       {{#link-to 'dashboard.expenses.index'}}
         Expenses
+        <p>
+          {{money expenseSum session.currentUser.currencySymbol}}
+        </p>
       {{/link-to}}
-      <p>
-        {{money expenseSum session.currentUser.currencySymbol}}
-      </p>
     </li>
     <li class="sidebar-item">
       {{#link-to 'dashboard.incomes.index'}}
         Incomes
+        <p>
+          {{money incomeSum session.currentUser.currencySymbol}}
+        </p>
       {{/link-to}}
-      <p>
-        {{money incomeSum session.currentUser.currencySymbol}}
-      </p>
     </li>
   </ul>
 </div>

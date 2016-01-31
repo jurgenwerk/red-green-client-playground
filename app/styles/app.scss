@@ -1,13 +1,13 @@
 $navbar-height: 60px;
 $sidebar-width: 200px;
-$navbar-background: lightgray;
+$navbar-background: #2D2D2D;
+$sidebar-active-item: #D8D8D8;
 
 body {
   margin: 0;
 }
 
 .navbar {
-  background: lightgray;
   left: 0;
   top: 0;
   position: fixed;
@@ -15,6 +15,20 @@ body {
   background: $navbar-background;
   width: 100%;
   margin: 0;
+
+  a {
+    color: #F0F0F0;
+    padding: 4px;
+  }
+
+  .period-title {
+    color: #F0F0F0;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0 10px;
+    display: inline-block;
+    width: 160px;
+  }
 
   .navbar-period {
     margin-top: 20px;
@@ -41,6 +55,26 @@ body {
   left: 0;
   height: 100%;
   top: $navbar-height;
+
+  .sidebar-items {
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-item {
+    a {
+      padding-left: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      display: block;
+      color: #101010;
+      text-decoration: none;
+
+      &:hover, &.active {
+        background: $sidebar-active-item;
+      }
+    }
+  }
 }
 
 .action-blocks {
