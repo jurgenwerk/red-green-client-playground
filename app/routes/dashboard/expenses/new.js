@@ -4,21 +4,12 @@ import moment from 'moment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model (params, transition) {
-    let entryTime = null;
+    let entryDate = null;
     if (transition.queryParams.period) {
-      entryTime = moment(transition.queryParams.period).toDate();
+      entryDate = moment(transition.queryParams.period + "-01");
     } else {
-      entryTime = moment().toDate();
+      entryDate = moment();
     }
-    debugger
-    return this.store.createRecord('balance-change', { changeType: 'expense', entryTime: entryTime });
-  },
-  actions: {
-    save: function() {
-      this.controller.get('model').save().then(() => {
-        this.send('refreshRoute');
-        this.transitionTo('dashboard.expenses');
-      });
-    }
+    return this.store.createRecord('balance-change', { changeType: 'expense', entryDate: entryDate.format('YYYY-MM-DD') });
   }
 });

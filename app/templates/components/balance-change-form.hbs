@@ -1,0 +1,20 @@
+{{focus-input value=humanInputValue enter="save"}}
+
+{{currencySymbol}}
+
+<button {{action 'save'}}>
+  save
+</button>
+
+<p>
+  {{pick-a-date date=(readonly dateForInput) on-selected=(action 'setEntryDate')}}
+</p>
+
+{{#each balanceChange.errors as |error|}}
+  <p>
+    {{error.attribute}}:
+    {{error.message}}
+  </p>
+{{/each}}
+
+{{yield}}

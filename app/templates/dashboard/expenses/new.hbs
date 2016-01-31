@@ -1,9 +1,5 @@
-{{focus-input value=model.value enter="save"}}
-
-<button {{action 'save'}}>
-  save
-</button>
-
-<p>
-  {{pick-a-date date=(readonly model.entryTime) on-selected=(action 'onEntryTimeSelected')}}
-</p>
+{{balance-change-form
+  balanceChange=model
+  currencySymbol=session.currentUser.currencySymbol
+  save=(action 'save')
+}}
