@@ -5,7 +5,7 @@
 <ul>
   {{#each expenses as |expense|}}
     <li>
-      {{expense.value}}
+      {{money expense.value session.currentUser.currencySymbol}}
     </li>
   {{/each}}
 </ul>

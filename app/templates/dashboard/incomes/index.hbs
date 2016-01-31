@@ -5,7 +5,7 @@
 <ul>
   {{#each incomes as |income|}}
     <li>
-      {{income.value}}
+      {{money income.value session.currentUser.currencySymbol}}
     </li>
   {{/each}}
 </ul>
