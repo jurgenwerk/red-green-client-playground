@@ -10,7 +10,9 @@
   </div>
 
   <div class="user-actions">
-    {{session.currentUser.email}}
+    {{#link-to 'dashboard.settings'}}
+      {{session.currentUser.email}}
+    {{/link-to}}
 
     <button {{action 'logout'}}>
       Sign out
@@ -29,7 +31,7 @@
         Overview
       {{/link-to}}
       <p>
-        {{sumDifference}} left to spend this month
+        {{money sumDifference session.currentUser.currencySymbol}} left
       </p>
     </li>
     <li class="sidebar-item">
@@ -37,7 +39,7 @@
         Expenses
       {{/link-to}}
       <p>
-        {{expenseSum}}
+        {{money expenseSum session.currentUser.currencySymbol}}
       </p>
     </li>
     <li class="sidebar-item">
@@ -45,7 +47,7 @@
         Incomes
       {{/link-to}}
       <p>
-        {{incomeSum}}
+        {{money incomeSum session.currentUser.currencySymbol}}
       </p>
     </li>
   </ul>
