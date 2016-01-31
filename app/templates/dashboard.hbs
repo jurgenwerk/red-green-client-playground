@@ -31,7 +31,11 @@
         Overview
       {{/link-to}}
       <p>
-        {{money sumDifference session.currentUser.currencySymbol}} left
+        {{#if (lt sumDifference 0)}}
+          {{money sumDifference session.currentUser.currencySymbol}} in the red
+        {{else}}
+          {{money sumDifference session.currentUser.currencySymbol}} left
+        {{/if}}
       </p>
     </li>
     <li class="sidebar-item">
