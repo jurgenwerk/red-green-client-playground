@@ -4,7 +4,11 @@
 
 <ul>
   {{#each incomes as |income|}}
-    {{balance-change balanceChange=income currencySymbol=session.currentUser.currencySymbol}}
+    {{balance-change
+      balanceChange=income
+      currencySymbol=session.currentUser.currencySymbol
+      delete=(action 'delete')
+    }}
   {{/each}}
 </ul>
 

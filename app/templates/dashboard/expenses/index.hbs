@@ -4,8 +4,12 @@
 
 <ul>
   {{#each expenses as |expense|}}
-    {{balance-change balanceChange=expense currencySymbol=session.currentUser.currencySymbol}}
-  {{/each}}
+    {{balance-change
+      balanceChange=expense
+      currencySymbol=session.currentUser.currencySymbol
+      delete=(action 'delete')
+    }}
+ {{/each}}
 </ul>
 
 {{outlet}}
