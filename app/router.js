@@ -16,6 +16,7 @@ Router.map(function() {
     this.route('expenses', function () {
       this.route('new');
     });
+    this.route('settings');
   })
 });
 

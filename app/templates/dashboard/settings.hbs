@@ -1,0 +1,9 @@
+<select onchange={{action "selectCurrency" value="target.value"}}>
+  {{#each currenciesData.currencies as |currency|}}
+    <option value={{currency.cc}} selected={{eq currency.cc session.currentUser.currency}}>{{currency.cc}} / {{currency.name}}</option>
+  {{/each}}
+</select>
+
+<button {{action 'save'}}>
+  Save
+</button>
