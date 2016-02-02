@@ -1,15 +1,18 @@
-<p>
-  expenses ({{expenses.length}}):
-</p>
-
-<ul>
-  {{#each expenses as |expense|}}
-    {{balance-change
-      balanceChange=expense
-      currencySymbol=session.currentUser.currencySymbol
-      delete=(action 'delete')
-    }}
- {{/each}}
-</ul>
+{{#if expenses}}
+  <ul>
+    {{#each expenses as |expense|}}
+      {{balance-change
+        balanceChange=expense
+        currencySymbol=session.currentUser.currencySymbol
+        delete=(action 'delete')
+      }}
+    {{/each}}
+  </ul>
+{{else}}
+  No expenses for selected period.
+  {{#link-to 'dashboard.expenses.new'}}
+    Add
+  {{/link-to}}
+{{/if}}
 
 {{outlet}}

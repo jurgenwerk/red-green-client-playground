@@ -1,14 +1,9 @@
-{{focus-input value=humanInputValue enter="save"}}
-
-{{currencySymbol}}
+{{pick-a-date date=(readonly dateForInput) on-selected=(action 'setEntryDate')}}
+{{focus-input value=humanInputValue enter="save"}} {{currencySymbol}}
 
 <button {{action 'save'}}>
   save
 </button>
-
-<p>
-  {{pick-a-date date=(readonly dateForInput) on-selected=(action 'setEntryDate')}}
-</p>
 
 {{#each balanceChange.errors as |error|}}
   <p>

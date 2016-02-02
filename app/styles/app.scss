@@ -19,6 +19,7 @@ body {
   a {
     color: #F0F0F0;
     padding: 4px;
+    padding-right: 10px;
   }
 
   .period-title {
@@ -31,8 +32,17 @@ body {
   }
 
   .navbar-period {
-    margin-top: 20px;
+    margin-top: 17px;
     text-align: center;
+
+    button {
+      font-size: 1.2rem;
+      border: none;
+      &:hover {
+        background: #fff;
+        cursor: pointer;
+      }
+    }
   }
 
   .user-actions {
@@ -64,7 +74,7 @@ body {
   .sidebar-item {
     a {
       padding-left: 10px;
-      padding-top: 5px;
+      padding-top: 20px;
       padding-bottom: 5px;
       display: block;
       color: #101010;
@@ -89,12 +99,12 @@ body {
     width: 50%;
     float: left;
     text-decoration: none;
-    color: #F0F0F0;
+    color: #fff;
     display: flex;
 
     .action-block-sign {
       margin: auto;
-      font-size: 4rem;
+      font-size: 1.4rem;
     }
   }
 

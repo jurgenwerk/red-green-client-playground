@@ -1,15 +1,18 @@
-<p>
-  incomes ({{incomes.length}}):
-</p>
-
-<ul>
-  {{#each incomes as |income|}}
-    {{balance-change
-      balanceChange=income
-      currencySymbol=session.currentUser.currencySymbol
-      delete=(action 'delete')
-    }}
-  {{/each}}
-</ul>
+{{#if incomes}}
+  <ul>
+    {{#each incomes as |income|}}
+      {{balance-change
+        balanceChange=income
+        currencySymbol=session.currentUser.currencySymbol
+        delete=(action 'delete')
+      }}
+    {{/each}}
+  </ul>
+{{else}}
+  No incomes for selected period.
+  {{#link-to 'dashboard.incomes.new'}}
+    Add
+  {{/link-to}}
+{{/if}}
 
 {{outlet}}
