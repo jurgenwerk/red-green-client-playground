@@ -6,7 +6,7 @@ export default DS.Model.extend({
   changeType: DS.attr('string'),
   entryDate: DS.attr('string'),
   isExpense: Ember.computed('changeType', function(){
-    this.get('changeType') === 'expense';
+    return this.get('changeType') === 'expense';
   }),
   isIncome: Ember.computed.not('isExpense')
 });
