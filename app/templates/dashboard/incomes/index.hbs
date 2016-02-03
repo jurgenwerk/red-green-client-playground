@@ -1,5 +1,15 @@
 {{#if incomes}}
-  <ul>
+  <ul class="balance-change-list">
+    <li class="balance-change-sorters">
+      <span class="balance-change-field">
+        Date
+      </span>
+      <span class="balance-change-field">
+        Income
+      </span>
+      <span class="balance-change-field">
+      </span>
+    </li>
     {{#each incomes as |income|}}
       {{balance-change
         balanceChange=income
@@ -10,9 +20,10 @@
   </ul>
 {{else}}
   No incomes for selected period.
-  {{#link-to 'dashboard.incomes.new'}}
-    Add
-  {{/link-to}}
 {{/if}}
+
+{{#link-to 'dashboard.incomes.new'}}
+  Add
+{{/link-to}}
 
 {{outlet}}

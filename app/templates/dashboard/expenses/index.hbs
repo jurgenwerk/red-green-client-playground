@@ -1,5 +1,15 @@
 {{#if expenses}}
-  <ul>
+  <ul class="balance-change-list">
+    <li class="balance-change-sorters">
+      <span class="balance-change-field">
+        Date
+      </span>
+      <span class="balance-change-field">
+        Income
+      </span>
+      <span class="balance-change-field">
+      </span>
+    </li>
     {{#each expenses as |expense|}}
       {{balance-change
         balanceChange=expense
@@ -10,9 +20,10 @@
   </ul>
 {{else}}
   No expenses for selected period.
-  {{#link-to 'dashboard.expenses.new'}}
-    Add
-  {{/link-to}}
 {{/if}}
+
+{{#link-to 'dashboard.expenses.new'}}
+  Add
+{{/link-to}}
 
 {{outlet}}

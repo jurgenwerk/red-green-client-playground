@@ -12,9 +12,12 @@ Router.map(function() {
     this.route('overview');
     this.route('incomes', function () {
       this.route('new');
+      this.route('edit', { path: ':balance_change_id/edit' });
     });
+    this.route('incomes')
     this.route('expenses', function () {
       this.route('new');
+      this.route('edit', { path: ':balance_change_id/edit' });
     });
     this.route('settings');
   })

@@ -1,6 +1,21 @@
-{{money balanceChange.value}}
-{{balanceChange.entryDate}}
-<button {{action (action delete balanceChange)}}>
-  x
-</button>
+<span class="balance-change-field">
+  {{balanceChange.entryDate}}
+</span>
+<span class="balance-change-field">
+  {{money balanceChange.value currencySymbol}}
+</span>
+<span class="balance-change-field">
+  {{#if balanceChange.isExpense}}
+    {{#link-to 'dashboard.expenses.edit' balanceChange}}
+      Edit
+    {{/link-to}}
+  {{else}}
+    {{#link-to 'dashboard.incomes.edit' balanceChange}}
+      Edit
+    {{/link-to}}
+  {{/if}}
+  <button {{action (action delete balanceChange)}}>
+    x
+  </button>
+</span>
 {{yield}}
