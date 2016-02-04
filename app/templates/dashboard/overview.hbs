@@ -1,11 +1,27 @@
-<h1>
-  Overview:
-</h1>
-
 <h2>
-  Spent: {{expenseSum}}
+  Earned: {{money incomeSum session.currentUser.currencySymbol}}
 </h2>
 
+<div class="bar">
+  <div class="inner-bar incomes" style={{incomesBarStyle}}>
+  </div>
+</div>
+
 <h2>
-  Earned: {{incomeSum}}
+  Spent: {{money expenseSum session.currentUser.currencySymbol}}
+</h2>
+
+<div class="bar">
+  <div class="inner-bar expenses" style={{expensesBarStyle}}>
+  </div>
+</div>
+
+{{monthly-overview-chart
+  balanceChanges=model
+  period=dashboard.period
+  currencySymbol=session.currentUser.currencySymbol
+}}
+
+<h2>
+  Average expense per day: {{money avgExpensePerDay session.currentUser.currencySymbol}}
 </h2>

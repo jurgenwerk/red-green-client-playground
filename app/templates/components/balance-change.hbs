@@ -6,11 +6,11 @@
 </span>
 <span class="balance-change-field">
   {{#if balanceChange.isExpense}}
-    {{#link-to 'dashboard.expenses.edit' balanceChange}}
+    {{#link-to 'dashboard.expenses.edit' balanceChange class="button"}}
       Edit
     {{/link-to}}
   {{else}}
-    {{#link-to 'dashboard.incomes.edit' balanceChange}}
+    {{#link-to 'dashboard.incomes.edit' balanceChange class="button"}}
       Edit
     {{/link-to}}
   {{/if}}

@@ -16,7 +16,19 @@ export default Ember.Mixin.create({
   }),
   incomeSum: Ember.computed.sum('incomeValues'),
   expenseSum: Ember.computed.sum('expenseValues'),
-  sumDifference: Ember.computed('incomeSum', 'expenseSum', function () {
+  sumDifference: Ember.computed('incomeSum', 'expenseSum', function() {
     return this.get('incomeSum') - this.get('expenseSum');
+  }),
+  incomePercent: Ember.computed('incomeSum', 'expenseSum', function() {
+    return this.get('incomeSum')*100/(this.get('incomeSum') + this.get('expenseSum'));
+  }),
+  expensePercent: Ember.computed('incomeSum', 'expenseSum', function() {
+    return this.get('expenseSum')*100/(this.get('incomeSum') + this.get('expenseSum'));
+  }),
+  incomesBarStyle: Ember.computed('incomePercent', function() {
+    return Ember.String.htmlSafe(`width: ${this.get('incomePercent')}%`);
+  }),
+  expensesBarStyle: Ember.computed('expensePercent', function() {
+    return Ember.String.htmlSafe(`width: ${this.get('expensePercent')}%`);
   })
 });
