@@ -15,6 +15,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     const period = params.period || this.get('moment').moment().format("YYYY-MM");
     return this.store.query('balance-change', { filter: { period: period } });
   },
+  afterModel (model, transition) {
+    if (transition.targetName === "dashboard.index"){
+      this.transitionTo('dashboard.overview');
+    }
+  },
   actions: {
     refreshRoute: function() {
       this.refresh();
