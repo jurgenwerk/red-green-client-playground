@@ -1,19 +1,28 @@
-<p>
-  hey buddy, signup
-</p>
+<div class="form-container">
+  <form>
+    <h2>
+      Sign up
+    </h2>
 
-email:
-{{input value=user.email}}
-password:
-{{input value=user.password type="password"}}
+    {{input value=user.email placeholder="E-mail"}}
+    {{input value=user.password type="password" placeholder="Password"}}
 
-<button {{action 'signup'}}>
-  Do it
-</button>
 
-{{#each user.errors as |error|}}
-  <p>
-    {{error.attribute}}:
-    {{error.message}}
-  </p>
-{{/each}}
+    {{#each user.errors as |error|}}
+      <p>
+        {{error.attribute}}:
+        {{error.message}}
+      </p>
+    {{/each}}
+
+    <button {{action 'signup'}}>
+      Sign up
+    </button>
+
+    <p>
+      {{#link-to 'login'}}
+        Login
+      {{/link-to}}
+    </p>
+  </form>
+</div>

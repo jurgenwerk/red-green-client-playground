@@ -34,7 +34,7 @@ export default Ember.Component.extend({
         expenseSums
         ]
       }, {
-      seriesBarDistance: 1,
+      seriesBarDistance: 7,
       axisX: {
         offset: 60
       },

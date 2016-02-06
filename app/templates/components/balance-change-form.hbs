@@ -1,5 +1,5 @@
 {{pick-a-date date=(readonly dateForInput) on-selected=(action 'setEntryDate')}}
-<input value={{displayValue}} oninput={{action 'onValueChange' value="target.value"}} autofocus="autofocus">
+<input value={{displayValue}} oninput={{action 'onValueChange' value="target.value"}}>
 {{currencySymbol}}
 {{newValueInCents}}
 <button {{action 'save'}}>

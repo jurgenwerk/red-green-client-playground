@@ -1,14 +1,26 @@
-{{input value=username placeholder="E-mail"}}
-{{input value=password placeholder="password" type="password"}}
+<div class="form-container">
+  <form>
+    <h2>
+      Login
+    </h2>
 
-<button {{action 'login'}}>
-  Login
-</button>
+    {{input value=username placeholder="E-mail"}}
+    {{input value=password placeholder="password" type="password"}}
 
-{{#link-to 'signup'}}
-  Signup
-{{/link-to}}
+    <p>
+      {{errorMessage}}
+    </p>
 
-{{errorMessage}}
+    <button {{action 'login'}}>
+      Login
+    </button>
+
+    <p>
+      {{#link-to 'signup'}}
+        Signup
+      {{/link-to}}
+    </p>
+  </form>
+</div>
 
 {{outlet}}

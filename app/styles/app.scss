@@ -2,9 +2,36 @@ $navbar-height: 60px;
 $sidebar-width: 200px;
 $navbar-background: #2D2D2D;
 $sidebar-active-item: #D8D8D8;
+$green: #27B14E;
+$red: tomato;
 
 body {
   margin: 0;
+  font-family: monospace;
+}
+
+.form-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+
+  form {
+    display: inline-block;
+
+    input {
+      display: block;
+      height: 25px;
+      width: 200px;
+      margin: 10px;
+      border-radius: 3px;
+      border: 2px solid gray;
+      padding-left: 10px;
+    }
+
+    button {
+      // display: b
+    }
+  }
 }
 
 .navbar {
@@ -28,11 +55,12 @@ body {
     font-size: 20px;
     padding: 0 10px;
     display: inline-block;
-    width: 160px;
+    width: 170px;
+    vertical-align: middle;
   }
 
   .navbar-period {
-    margin-top: 17px;
+    margin-top: 16px;
     text-align: center;
 
     button {
@@ -48,7 +76,7 @@ body {
   .user-actions {
     position: absolute;
     right: 20px;
-    margin-top: -20px;
+    margin-top: -22px;
   }
 }
 
@@ -88,7 +116,7 @@ body {
 }
 
 .action-blocks {
-  width: 300px;
+  width: 260px;
   height: 100px;
   position: fixed;
   right: 0;
@@ -109,17 +137,17 @@ body {
   }
 
   .action-block-minus {
-    background: tomato;
+    background: $red;
 
     &:hover {
-      background: darken(tomato, 7);
+      background: darken($red, 7);
     }
   }
 
   .action-block-plus {
-    background: lightgreen;
+    background: $green;
     &:hover {
-      background: darken(lightgreen, 7);
+      background: lighten($green, 7);
     }
   }
 }
@@ -130,6 +158,8 @@ ul.balance-change-list {
   width: 400px;
 
   li {
+    margin-bottom: 3px;
+
     .balance-change-field {
       width: 30%;
       display: inline-block;
@@ -138,6 +168,64 @@ ul.balance-change-list {
     &.balance-change-sorters {
       font-weight: bold;
       margin-bottom: 5px;
+    }
+  }
+}
+
+button, .button {
+  display: inline-block;
+  padding: 2px 7px;
+  margin-bottom: 0;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+a.button {
+  text-decoration: none;
+}
+
+.monthly-overview-chart {
+  height: 300px;
+}
+
+.ct-series-a {
+  line.ct-bar {
+    stroke: $green;
+  }
+}
+
+.bar {
+  height: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border-radius: 1px;
+
+  .inner-bar {
+    float: left;
+    width: 0%;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    transition: width .5s ease;
+
+    &.incomes {
+      background-color: $green;
+    }
+
+    &.expenses {
+      background-color: $red;
     }
   }
 }
