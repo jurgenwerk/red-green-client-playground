@@ -1,14 +1,13 @@
 <div class="form-container">
-  <form>
+  <form {{action 'signup' on="submit"}}>
     <h2>
       Sign up
     </h2>
 
-    {{input value=user.email placeholder="E-mail"}}
-    {{input value=user.password type="password" placeholder="Password"}}
+    {{input value=model.email placeholder="E-mail"}}
+    {{input value=model.password type="password" placeholder="Password"}}
 
-
-    {{#each user.errors as |error|}}
+    {{#each model.errors as |error|}}
       <p>
         {{error.attribute}}:
         {{error.message}}
