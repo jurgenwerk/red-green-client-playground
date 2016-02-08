@@ -219,13 +219,13 @@ a.button {
     color: #fff;
     text-align: center;
     transition: width .5s ease;
-
-    &.incomes {
-      background-color: $green;
-    }
-
-    &.expenses {
-      background-color: $red;
-    }
   }
+}
+
+.income-bar .inner-bar {
+  background-color: $green;
+}
+
+.expense-bar .inner-bar {
+  background-color: $red;
 }
