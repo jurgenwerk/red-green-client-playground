@@ -12,7 +12,6 @@ export default Ember.Route.extend({
       user.set('currency', 'USD');
       user.save().then((user) => {
         this.get('session').authenticate('authenticator:oauth2', email, password);
-        user.set('password', null);
       }).finally(() => { user.set('password', null); });
     }
   }
