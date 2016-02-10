@@ -1,73 +1,19 @@
-<div class="navbar">
-  <div class="navbar-period">
-    <button {{action "goPeriodBack"}}>
-      &#60;
-    </button>
-    <span class="period-title">
-      {{period-in-words period}}
-    </span>
-    <button {{action "goPeriodNext"}}>
-      >
-    </button>
-  </div>
+{{nav-bar
+  period=period
+  goPeriodBack=(action 'goPeriodBack')
+  goPeriodNext=(action 'goPeriodNext')
+  logout=(action 'logout')
+}}
 
-  <div class="user-actions">
-    {{#link-to 'dashboard.settings'}}
-      {{session.currentUser.email}} 
-    {{/link-to}}
-
-    <button {{action 'logout'}}>
-      Sign out
-    </button>
-  </div>
-</div>
+{{side-bar
+  currencySymbol=session.currentUser.currencySymbol
+  expenseSum=expenseSum
+  incomeSum=incomeSum
+  sumDifference=sumDifference
+}}
 
 <div class="main">
   {{outlet}}
 </div>
 
-<div class="sidebar">
-  <ul class="sidebar-items">
-    <li class="sidebar-item">
-      {{#link-to 'dashboard.overview'}}
-        Overview
-        <p>
-          {{#if (lt sumDifference 0)}}
-            {{money sumDifference session.currentUser.currencySymbol}} in the red
-          {{else}}
-            {{money sumDifference session.currentUser.currencySymbol}} left
-          {{/if}}
-        </p>
-      {{/link-to}}
-    </li>
-    <li class="sidebar-item">
-      {{#link-to 'dashboard.expenses.index'}}
-        Expenses
-        <p>
-          {{money expenseSum session.currentUser.currencySymbol}}
-        </p>
-      {{/link-to}}
-    </li>
-    <li class="sidebar-item">
-      {{#link-to 'dashboard.incomes.index'}}
-        Incomes
-        <p>
-          {{money incomeSum session.currentUser.currencySymbol}}
-        </p>
-      {{/link-to}}
-    </li>
-  </ul>
-</div>
-
-<div class="action-blocks">
-  {{#link-to 'dashboard.incomes.new' class="action-block action-block-plus"}}
-    <span class="action-block-sign">
-      +
-    </span>
-  {{/link-to}}
-  {{#link-to 'dashboard.expenses.new' class="action-block action-block-minus"}}
-    <span class="action-block-sign">
-      -
-    </span>
-  {{/link-to}}
-</div>
+{{action-blocks}}

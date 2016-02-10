@@ -1,0 +1,32 @@
+<div class="sidebar">
+  <ul class="sidebar-items">
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.overview'}}
+        Overview
+        <p>
+          {{#if (lt sumDifference 0)}}
+            {{money sumDifference session.currentUser.currencySymbol}} in the red
+          {{else}}
+            {{money sumDifference session.currentUser.currencySymbol}} left
+          {{/if}}
+        </p>
+      {{/link-to}}
+    </li>
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.expenses.index'}}
+        Expenses
+        <p>
+          {{money expenseSum session.currentUser.currencySymbol}}
+        </p>
+      {{/link-to}}
+    </li>
+    <li class="sidebar-item">
+      {{#link-to 'dashboard.incomes.index'}}
+        Incomes
+        <p>
+          {{money incomeSum session.currentUser.currencySymbol}}
+        </p>
+      {{/link-to}}
+    </li>
+  </ul>
+</div>
