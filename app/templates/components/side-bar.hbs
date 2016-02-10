@@ -7,7 +7,7 @@
           {{#if (lt sumDifference 0)}}
             {{money sumDifference session.currentUser.currencySymbol}} in the red
           {{else}}
-            {{money sumDifference session.currentUser.currencySymbol}} left
+            {{money sumDifference currencySymbol}} left
           {{/if}}
         </p>
       {{/link-to}}
@@ -16,7 +16,7 @@
       {{#link-to 'dashboard.expenses.index'}}
         Expenses
         <p>
-          {{money expenseSum session.currentUser.currencySymbol}}
+          {{money expenseSum currencySymbol}}
         </p>
       {{/link-to}}
     </li>
@@ -24,7 +24,7 @@
       {{#link-to 'dashboard.incomes.index'}}
         Incomes
         <p>
-          {{money incomeSum session.currentUser.currencySymbol}}
+          {{money incomeSum currencySymbol}}
         </p>
       {{/link-to}}
     </li>

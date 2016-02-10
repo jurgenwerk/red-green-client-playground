@@ -13,7 +13,7 @@
 
   <div class="user-actions">
     {{#link-to 'dashboard.settings'}}
-      {{session.currentUser.email}}
+      {{currentUser.email}}
     {{/link-to}}
 
     <button {{action (action logout)}}>
