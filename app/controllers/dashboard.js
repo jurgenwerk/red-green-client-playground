@@ -5,17 +5,14 @@ import moment from 'moment';
 export default Ember.Controller.extend(BalanceChangePropertiesMixin, {
   application: Ember.inject.controller(),
   queryParams: ['period'],
-  period: (new Date()).toISOString().slice(0, 7),
-  getCurrentPeriod () {
-    return moment(this.get('period'));
-  },
+  period: moment().format("YYYY-MM"),
   actions: {
     goPeriodBack: function() {
-      const previousPeriod = this.getCurrentPeriod().subtract(1, "month").format("YYYY-MM");
+      const previousPeriod = moment(this.get('period')).subtract(1, "month").format("YYYY-MM");
       this.set('period', previousPeriod);
     },
     goPeriodNext: function() {
-      const nextPeriod = this.getCurrentPeriod().add(1, "month").format("YYYY-MM");
+      const nextPeriod = moment(this.get('period')).add(1, "month").format("YYYY-MM");
       this.set('period', nextPeriod);
     },
     logout() {
