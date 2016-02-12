@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import accounting from "accounting"
+import accounting from "accounting";
+import moment from 'moment';
 
 export default Ember.Component.extend({
   didReceiveAttrs() {

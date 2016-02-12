@@ -7,7 +7,7 @@ export default Ember.Controller.extend(BalanceChangePropertiesMixin, {
     const dateParts = this.get('dashboard.period').split("-");
     const year = dateParts[0];
     const month = dateParts[1];
-    const daysInMonth = new Date(year, month, 0).getDate()
+    const daysInMonth = new Date(year, month, 0).getDate();
     return this.get('expenseSum')/daysInMonth;
   })
 });

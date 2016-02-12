@@ -10,7 +10,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     if (this.get('session.isAuthenticated')) {
       this.store.findRecord('user', 'me').then (user => {
         this.set('session.currentUser', user);
-      })
+      });
     }
   },
   beforeModel: function () {
