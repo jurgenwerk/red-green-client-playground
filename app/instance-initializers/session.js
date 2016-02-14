@@ -7,6 +7,5 @@ export default {
   initialize(appInstance) {
     appInstance.inject('route', 'session', 'service:session');
     appInstance.inject('controller', 'session', 'service:session');
-    appInstance.inject('component', 'session', 'service:session');
   }
 }

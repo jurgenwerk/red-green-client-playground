@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
       this.get('balanceChange').setProperties(properties);
       this.get('balanceChange').save().then(() => {
         this.send('refreshRoute');
-        this.transitionToRoute('dashboard.expenses.index');
+        this.transitionToRoute('dashboard.expenses');
       });
     }
   }
