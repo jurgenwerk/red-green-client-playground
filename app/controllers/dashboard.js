@@ -3,7 +3,7 @@ import BalanceChangePropertiesMixin from 'red-green-client/mixins/balance-change
 import moment from 'moment';
 
 export default Ember.Controller.extend(BalanceChangePropertiesMixin, {
-  application: Ember.inject.controller(),
+  session: Ember.inject.service('session'),
   queryParams: ['period'],
   period: moment().format("YYYY-MM"),
   actions: {
@@ -16,7 +16,7 @@ export default Ember.Controller.extend(BalanceChangePropertiesMixin, {
       this.set('period', nextPeriod);
     },
     logout() {
-      this.get('application').send('logout');
+      this.get('session').invalidate();
     }
   }
 });
