@@ -1,18 +1,30 @@
 import Ember from 'ember';
+import ENV from "../config/environment";
 
 export default Ember.Route.extend({
-  model () {
-    return this.store.createRecord('user');
-  },
+  ajax: Ember.inject.service(),
   actions: {
-    signup: function() {
-      let user = this.controller.get('model');
-      const email = user.get('email');
-      const password = user.get('password');
-      user.set('currency', 'USD');
-      user.save().then(() => {
+    signup: function(email, password) {
+      const userParams = {
+        data: {
+          attributes: {
+            email: email,
+            password: password,
+            currency: 'USD'
+          }
+        }
+      }
+
+      const request = this.get('ajax').request(`${ENV.apiBaseURL}/users`, {
+        method: 'POST',
+        data: userParams
+      });
+
+      request.then(() => {
         this.get('session').authenticate('authenticator:oauth2', email, password);
-      }).finally(() => { user.set('password', null); });
+      }).catch((response) => {
+        this.controller.set('signupError', 'Signup error.');
+      });
     }
   }
 });

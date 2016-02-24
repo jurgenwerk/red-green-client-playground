@@ -4,17 +4,16 @@
       Sign up
     </h2>
 
-    {{input value=model.email placeholder="E-mail"}}
-    {{input value=model.password type="password" placeholder="Password"}}
+    {{input value=email placeholder="E-mail"}}
+    {{input value=password type="password" placeholder="Password"}}
 
-    {{#each model.errors as |error|}}
+    {{#if signupError}}
       <p>
-        {{error.attribute}}:
-        {{error.message}}
+        {{signupError}}
       </p>
-    {{/each}}
+    {{/if}}
 
-    <button {{action 'signup'}}>
+    <button {{action 'signup' email password}}>
       Sign up
     </button>
 
