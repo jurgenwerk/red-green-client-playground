@@ -29,10 +29,6 @@ module.exports = function(environment) {
 
     ENV.serverURL = 'http://localhost:3000';
     ENV.apiBaseURL = ENV.serverURL + '/' + ENV.apiNamespace;
-
-    ENV['ember-simple-auth'] = {
-      baseURL: 'http://localhost:3000'
-    };
   }
 
   if (environment === 'test') {
